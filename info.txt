@@ -1,0 +1,12 @@
+Angular package hozzáadása (app.module-t frissíti, beállításokat elvégzni):
+ng add @angular/fire
+
+environments.ts-be kellenek a kapcsolódási adatok
+
+FireStore Db-hez csatlakozás
+
+collection: tábla
+doumentum
+kulcs - érték párok
+
+@ng-bootstrap/ng-bootstrap

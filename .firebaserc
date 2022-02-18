@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "lowsalt-73e0c": {
+      "hosting": {
+        "firebase-angular": [
+          "lowsalt-73e0c"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "lowsalt-73e0c"
+  }
+}
