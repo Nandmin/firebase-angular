@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { getFirestore } from '@angular/fire/firestore';
 import { AngularFirestore, AngularFirestoreDocument  } from '@angular/fire/compat/firestore';
 import { Observable } from 'rxjs';
@@ -8,13 +8,15 @@ import { User } from './model/user';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  // template: '<div>{{ (item | async)?.name}}</div>'
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  // ez elérhetővé teszi a css-t
+  encapsulation: ViewEncapsulation.None
 })
 
 export class AppComponent {
   title = 'firebase-angular';
   items: Observable<any> = this.userService.all;
+  newUser: User = new User();
 
   constructor(
     // a servic-be szervezés miatt ez már nem kell
@@ -53,7 +55,7 @@ export class AppComponent {
       if(!confirm('Are you sure?')){
         return
       }
-      
+
       this.userService.delete(user).then(
         resp => alert('User deleted'),
         err => alert(err.error)

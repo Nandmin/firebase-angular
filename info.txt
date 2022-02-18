@@ -10,3 +10,11 @@ doumentum
 kulcs - érték párok
 
 @ng-bootstrap/ng-bootstrap
+
+
+Deploy 
+firebase deploy
+
+firebase login
+firebase init
+firebase deploy

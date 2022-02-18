@@ -1,23 +1,51 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-10 offset-1">
-      <table class="table table-striped">
+      <table class="table table-striped table-hover">
         <thead>
           <tr>
-            <th>Display Name</th>
+            <th>Name</th>
             <th>Email</th>
-            <th>Verified</th>
-            <th>Photo URL</th>
-            <th>ID</th>
+            <th>Age</th>
+            <th>Action</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let item of items| async">
-            <td>{{ item.displayName }}</td>
+          <tr>
+            <td>
+              <input [(ngModel)]="newUser.name" type="text" class="form-control">
+            </td>
+            <td>
+              <input [(ngModel)]="newUser.email" type="email" class="form-control">
+            </td>
+            <td>
+              <input [(ngModel)]="newUser.age" type="number" class="form-control">
+            </td>
+            <td>
+              <button (click)="onCreate(newUser)" class="btn btn-success">Add</button>
+            </td>
+          </tr>
+          <tr *ngFor="let item of items | async">
+            <!-- <td>{{ item.displayName }}</td>
             <td>{{ item.email }}</td>
             <td>{{ item.emailVerified }}</td>
             <td>{{ item.photoURL }}</td>
-            <td>{{ item.uid }}</td>
+            <td>{{ item.uid }}</td> -->
+            <td>
+              <input [(ngModel)]="item.name" type="text" class="form-control">
+            </td>
+            <td>
+              <input [(ngModel)]="item.email" type="email" class="form-control">
+            </td>
+            <td>
+              <input [(ngModel)]="item.age" type="number" class="form-control">
+            </td>
+            <td>
+              <div class="btn-group text-center">
+                <button (click)="onUpdate(item)" class="btn btn-info">Update</button>
+                <button (click)="onDelete(item)" class="btn btn-danger">Delete</button>
+              </div>
+            </td>
           </tr>
         </tbody>
       </table>
